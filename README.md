@@ -26,16 +26,16 @@
 
 4. Set up Prisma SQLite database
 
-  1. Generate Prisma client
+    1. Generate Prisma client
 
-    ```bash
-    npx prisma generate
-    ```
-  2. Apply migrations and initialize DB:
+      ```bash
+      npx prisma generate
+      ```
+    2. Apply migrations and initialize DB:
 
-    ```bash
-    npx prisma migrate dev --name init
-    ``` 
+      ```bash
+      npx prisma migrate dev --name init
+      ``` 
 
 5. Start server
 
