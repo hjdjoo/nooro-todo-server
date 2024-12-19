@@ -2,7 +2,7 @@
   "name": "nooro-todo-server",
   "version": "1.0.0",
   "description": "# Init server: npm startd",
-  "main": "index.ts",
+  "main": "server.ts",
   "scripts": {
     "start": "dotenvx run -- tsx --watch ./index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
