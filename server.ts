@@ -1,8 +1,10 @@
 import express, { Response, Request, NextFunction } from "express";
 
-import dbRouter from "./server/routes/dbRouter";
+import todoRouter from "./server/routes/todoRouter";
 
 import { defaultError } from "./_const/defaultError";
+
+import { ServerError } from "./_types/server-types";
 
 const app = express();
 
@@ -12,24 +14,22 @@ const PORT = process.env.PORT
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-app.use("/", (_req: Request, res: Response, _next: NextFunction) => {
-  res.status(200).json("success!")
-})
-
 // routers
-app.use("/api", dbRouter)
+app.use("/api", todoRouter)
 
 // unknown route handler
 app.use("/*", (_req: Request, res: Response) => {
+
   res.status(404).json("Unknown Route")
+
 });
 
 // global error handler
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
 
-  console.error("Global error handler/error stack: ", err.stack);
+  console.error("Global error handler/err: ", err)
 
-  const error = Object.assign({}, defaultError, err);
+  const error: ServerError = Object.assign({}, defaultError, err);
 
   res.status(error.status).json(error.message);
 
