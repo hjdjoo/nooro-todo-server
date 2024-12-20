@@ -1,0 +1,34 @@
+{
+  "name": "nooro-todo-server",
+  "version": "1.0.0",
+  "description": "# Init server: npm startd",
+  "main": "server.ts",
+  "scripts": {
+    "start": "dotenvx run -- tsx --watch ./server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjdjoo/nooro-todo-server.git"
+  },
+  "author": "Hee Je (Darryl)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hjdjoo/nooro-todo-server/issues"
+  },
+  "homepage": "https://github.com/hjdjoo/nooro-todo-server#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "prisma": "^6.1.0",
+    "tsx": "^4.19.2"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.31.0",
+    "@prisma/client": "^6.1.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "typescript": "^5.7.2"
+  }
+}
