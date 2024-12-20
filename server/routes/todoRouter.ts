@@ -12,7 +12,7 @@ todoRouter.get("/todo/:id",
   todoController.getTodosById
 )
 
-todoRouter.post("/todo",
+todoRouter.post("/todo/new",
   todoController.addTodo
 )
 

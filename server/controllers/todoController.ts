@@ -95,6 +95,7 @@ dbController.addTodo =
       type AddTodoReq = {
         title: string,
         color: string,
+        complete: boolean
       }
 
       const todoRequest: AddTodoReq = req.body;
@@ -104,10 +105,10 @@ dbController.addTodo =
         .create({
           data: {
             title: todoRequest.title,
-            color: todoRequest.color
+            color: todoRequest.color,
+            complete: todoRequest.complete
           }
         })
-
 
       return res.status(201).json(newTodo);
 
@@ -137,18 +138,15 @@ dbController.updateTodo =
       type updateTodoReq = {
         id: number
         complete: boolean
+        color?: string
       }
 
       const updatedTodoReq: updateTodoReq = req.body
 
-      console.log("updateTodo/updatedTodoReq: ", updatedTodoReq);
-
       const updatedTodo = await prisma
         .toDo
         .update({
-          data: {
-            complete: updatedTodoReq.complete
-          },
+          data: updatedTodoReq,
           where: {
             id: updatedTodoReq.id
           }

@@ -1,4 +1,5 @@
 import express, { Response, Request, NextFunction } from "express";
+import cors from "cors";
 
 import todoRouter from "./server/routes/todoRouter";
 
@@ -11,6 +12,10 @@ const app = express();
 const PORT = process.env.PORT
 
 // parse incoming requests
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE"]
+}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
